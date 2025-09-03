@@ -7,48 +7,64 @@
     <link rel="stylesheet" href="base.css">
 </head>
 <body>
-    <div class = "container">
-    <header>
-        <h1>JavaJam Coffee House</h1>
-    </header>
-    <nav>
-        <b>
-            <a href="index.html">Home</a> &NonBreakingSpace;
-            <a href="menu.html">Menu</a> &NonBreakingSpace;
-            <a href="music.html">Music</a> &NonBreakingSpace;
-            <a href="jobs.html">Jobs</a> &NonBreakingSpace;
-        </b>
-    </nav>
-    <div>
-        <dl>
-            <dt><strong>Barista</strong></dt>
-            <dd>
-                Location: Downtown<br>
-                Responsibilities: Prepare and serve coffee and tea beverages, maintain cleanliness of the café.<br>
-                Requirements: Previous experience preferred, excellent customer service skills.
-            </dd>
-            <dt><strong>Baker</strong></dt>
-            <dd>
-                Location: Downtown<br>
-                Responsibilities: Bake and prepare pastries, maintain inventory of baked goods.<br>
-                Requirements: Experience in baking, knowledge of food safety standards.
-            </dd>       
-            <dt><strong>Cashier</strong></dt>
-            <dd>
-                Location: Downtown<br>
-                Responsibilities: Handle cash transactions, assist customers with orders.<br>
-                Requirements: Strong math skills, friendly demeanor.
-            </dd>
-        </dl>
-    </div>
-    <footer>
-        <small>
-            <i>
-                Copyright &copy; 2014 JavaJam Coffee House<br>
-                avisena@gibraltar.com
-            </i>
-        </small>
-    </footer>
+    <div class="container">
+        <header class="header">
+            <h1>JavaJam Coffee House</h1>
+        </header>
+        <nav id="left-col">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="music.html">Music</a>
+                <a href="jobs.html">Jobs</a>
+            </div>
+        </nav>
+        <div class="content">
+            <h2>Jobs at JavaJam</h2>
+            <p>Want to work at JavaJam? Fill out the form below to start your application. Required fields are marked with an asterisk *</p>
+
+            <form action="post" class="form">
+                <div class="form-item">
+                    <label for="name">* Name:</label><br>
+                    <input type="text" id="name" name="name" required><br><br>
+                </div>
+
+                <div class="form-item">
+                    <label for="email">* Email:</label><br>
+                    <input type="email" id="email" name="email" required><br><br>
+                </div>
+
+                <div class="form-item">
+                    <label for="date">Start Date:</label><br>
+                    <input type="date" id="date" name="date" required><br><br>
+                </div>
+
+                <div class="form-item">
+                    <label for="experience">* Experience:</label><br>
+                    <textarea id="experience" name="experience" rows="4" cols="50" required></textarea><br><br>
+                </div>
+
+                <div class="form-buttons">
+                    <button>Clear</button>
+                    <input type="submit" value="Apply Now">
+                </div>
+            </form>
+        </div>
+        <footer class="footer">
+            <small>
+                <i>
+                    Copyright &copy; 2014 JavaJam Coffee House<br>
+        
+                </i>
+            </small>
+            <small>
+                <i>
+                    <a href="mailto:avisena@gibraltar.com">
+                        avisena@gibraltar.com
+                    </a>
+                </i>
+            </small>
+        </footer>
     </div>
 </body>
 </html>

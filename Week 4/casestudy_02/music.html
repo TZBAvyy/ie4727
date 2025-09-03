@@ -7,42 +7,71 @@
     <link rel="stylesheet" href="base.css">
 </head>
 <body>
-    <div class = "container">
-    <header>
-        <h1>JavaJam Coffee House</h1>
-    </header>
-    <nav>
-        <b>
-            <a href="index.html">Home</a> &NonBreakingSpace;
-            <a href="menu.html">Menu</a> &NonBreakingSpace;
-            <a href="music.html">Music</a> &NonBreakingSpace;
-            <a href="jobs.html">Jobs</a> &NonBreakingSpace;
-        </b>
-    </nav>
-    <div>
-        <p>JavaJam Coffee House features live music every Friday night. Join us for an evening of great tunes and good vibes!</p>
-        <h3>Featured Artists</h3>
-        <ul>
-            <li>The Java Jammers - Acoustic Folk</li>
-            <li>Coffee Beats - Jazz Ensemble</li>
-            <li>Mocha Melodies - Indie Rock Band</li>
-        </ul>
-        <h3>Upcoming Events</h3>
-        <ul>
-            <li>Open Mic Night - Every Friday at 7 PM</li>
-            <li>Live Jazz with Coffee Beats - Saturday, March 15th at 8 PM</li>
-            <li>Indie Rock Night with Mocha Melodies - Saturday, March 22nd at 8 PM</li>
-        </ul>
-        <p>Check our calendar for upcoming performances and open mic nights!</p>
-    </div>
-    <footer>
-        <small>
-            <i>
-                Copyright &copy; 2014 JavaJam Coffee House<br>
-                avisena@gibraltar.com
-            </i>
-        </small>
-    </footer>
+    <div class="container">
+        <header class="header">
+            <h1>JavaJam Coffee House</h1>
+        </header>
+        <nav id="left-col">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="music.html">Music</a>
+                <a href="jobs.html">Jobs</a>
+            </div>
+        </nav>
+        <div class="content">
+            <h2>Music at JavaJam</h2>            
+            <p>JavaJam Coffee House features live music every Friday night. Join us for an evening of great tunes and good vibes!</p>
+            <table class="music-table">
+                <tbody>
+                    <tr class="light-row">
+                        <td ><strong>JANUARY</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="artist-row">
+                            <img src="man.jpg" width="100px" height="100px" alt="Artist">
+                            <div>
+                                <p>Melanie Morris entertains with her melodic folk style</p>
+                                <strong>CDs are available now!</strong>
+                                <audio controls>
+                                    <source src="sade-smooth-operator.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="light-row">
+                        <td ><strong>FEBRUARY</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="artist-row">
+                            <img src="man2.jpg" width="100px" height="100px" alt="Artist">
+                            <div>
+                                <p>Tahoe Greg is back from his tour. New songs. New stories.</p>
+                                <strong>CDs are available now!</strong>
+                                <audio controls>
+                                    <source src="bruno-grenade.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <footer class="footer">
+            <small>
+                <i>
+                    Copyright &copy; 2014 JavaJam Coffee House<br>
+        
+                </i>
+            </small>
+            <small>
+                <i>
+                    <a href="mailto:avisena@gibraltar.com">
+                        avisena@gibraltar.com
+                    </a>
+                </i>
+            </small>
+        </footer>
     </div>
 </body>
 </html>

@@ -109,3 +109,49 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+.menu-table {
+  justify-self: center;
+}
+
+.menu-item {
+  text-align: center;
+}
+
+.menu-table td {
+  padding: 10px;
+}
+
+.dark-row {
+  background-color: var(--dark-brown);
+}
+
+.light-row {
+  background-color: var(--light-brown);
+}
+
+.music-table {
+  margin-top: 15px;
+  justify-self: center;
+}
+
+.artist-row {
+  display: flex;
+  gap: 30px;
+  padding-left: 30px;
+}
+
+.artist-row div {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: column;
+}
