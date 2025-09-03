@@ -1,0 +1,14 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  .container {
+    width: 80vw;                /* 80% of the viewport width */
+    min-width: 800px;           /* Minimum width */
+    margin: 0 auto;             /* Center horizontally */
+    height: 100%;               /* Optional: Full height */
+    display: flex;              /* Optional: For vertical centering */
+    flex-direction: column;     /* Optional: Layout direction */
+    align-items: center;        /* Optional: Align children horizontally */
+  }
