@@ -8,39 +8,65 @@
 </head>
 <body>
     <div class = "container">
-    <header>
+    <header class = "header">
         <h1>JavaJam Coffee House</h1>
     </header>
-    <nav>
-        <b>
-            <a href="index.html">Home</a> &NonBreakingSpace;
-            <a href="menu.html">Menu</a> &NonBreakingSpace;
-            <a href="music.html">Music</a> &NonBreakingSpace;
-            <a href="jobs.html">Jobs</a> &NonBreakingSpace;
-        </b>
+    <nav id="left-col">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="music.html">Music</a>
+            <a href="jobs.html">Jobs</a>
+        </div>
     </nav>
-    <div>
+    <div class = "content">
+        <h2>Live Music at JavaJam</h2>
         <p>JavaJam Coffee House features live music every Friday night. Join us for an evening of great tunes and good vibes!</p>
-        <h3>Featured Artists</h3>
-        <ul>
-            <li>The Java Jammers - Acoustic Folk</li>
-            <li>Coffee Beats - Jazz Ensemble</li>
-            <li>Mocha Melodies - Indie Rock Band</li>
-        </ul>
-        <h3>Upcoming Events</h3>
-        <ul>
-            <li>Open Mic Night - Every Friday at 7 PM</li>
-            <li>Live Jazz with Coffee Beats - Saturday, March 15th at 8 PM</li>
-            <li>Indie Rock Night with Mocha Melodies - Saturday, March 22nd at 8 PM</li>
-        </ul>
-        <p>Check our calendar for upcoming performances and open mic nights!</p>
+        <table id="menu-table", border = '1'>
+            <tr>
+                <th id="Month">Month</th>
+                <th id ="Artist">Artist</th>
+                <th id ="Audio">Audio</th>
+                <th id ="Description">Description</th>
+            </tr>
+            <tr>
+                <td headers="Month">Jan</td>
+                <td headers="Artist">Alex_MakeMusic</td>
+                <td headers="Audio">
+                    <audio controls>
+                        <source src="running-night-393139.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                      </audio>
+                </td>
+                <td id ="Description">
+                    Alex is a local artist known for his soulful acoustic performances. Enjoy a sample of his music above!
+                </td>
+            </tr>
+            <tr>
+                <td headers="Month">Feb</td>
+                <td headers="Artist">raspberrymusic</td>
+                <td headers="Audio">
+                    <audio controls>
+                        <source src="the-last-point-beat-electronic-digital-394291.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td id ="Description">
+                    Raspberry is an electronic music producer who blends digital sounds with organic rhythms. Listen to a snippet of their work above!
+                </td>
+            </tr>
+        </table>
     </div>
-    <footer>
+    <footer class = "footer">
         <small>
             <i>
                 Copyright &copy; 2014 JavaJam Coffee House<br>
-                avisena@gibraltar.com
             </i>
+        </small>
+        <small>
+            <a href="mailto:rongjun@choo.com">
+                rongjun@choo.com
+            </a>
         </small>
     </footer>
     </div>

@@ -8,45 +8,45 @@
 </head>
 <body>
     <div class = "container">
-    <header>
+    <header class="header">
         <h1>JavaJam Coffee House</h1>
     </header>
-    <nav>
-        <b>
-            <a href="index.html">Home</a> &NonBreakingSpace;
-            <a href="menu.html">Menu</a> &NonBreakingSpace;
-            <a href="music.html">Music</a> &NonBreakingSpace;
-            <a href="jobs.html">Jobs</a> &NonBreakingSpace;
-        </b>
+    <nav id="left-col">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="music.html">Music</a>
+            <a href="jobs.html">Jobs</a>
+        </div>
     </nav>
-    <div>
-        <dl>
-            <dt><strong>Barista</strong></dt>
-            <dd>
-                Location: Downtown<br>
-                Responsibilities: Prepare and serve coffee and tea beverages, maintain cleanliness of the café.<br>
-                Requirements: Previous experience preferred, excellent customer service skills.
-            </dd>
-            <dt><strong>Baker</strong></dt>
-            <dd>
-                Location: Downtown<br>
-                Responsibilities: Bake and prepare pastries, maintain inventory of baked goods.<br>
-                Requirements: Experience in baking, knowledge of food safety standards.
-            </dd>       
-            <dt><strong>Cashier</strong></dt>
-            <dd>
-                Location: Downtown<br>
-                Responsibilities: Handle cash transactions, assist customers with orders.<br>
-                Requirements: Strong math skills, friendly demeanor.
-            </dd>
-        </dl>
+    <div class = "content">
+        <h2>Jobs at JavaJam</h2>
+        <p>Want to work at JavaJam? Fill out the form below to start you application. Required fields are marked with an asterix *</p>
+        <form action="show_get.php" method="get"> 
+            *Name: <input type="text" name="Name"  id="Name" ><br >
+         </form>
+        <form action="show_get.php" method="get"> 
+            *Email: <input type="email" name="CustEmail"  id="CustEmail" ><br >
+        </form>
+        <form action="show_get.php" method="get">
+            <label for="myDate">Start Date</label>
+            <input type="date" name="myDate" id="myDateid"> 
+        </form>
+        <form>
+            <label for="message">*Experience</label><br>
+            <textarea id="message" name="message" rows="10" cols="50" placeholder="Enter your past experience here..."></textarea>
+        </form>
     </div>
-    <footer>
+    <footer class = "footer">
         <small>
             <i>
                 Copyright &copy; 2014 JavaJam Coffee House<br>
-                avisena@gibraltar.com
             </i>
+        </small>
+        <small>
+            <a href="mailto:rongjun@choo.com">
+                rongjun@choo.com
+            </a>
         </small>
     </footer>
     </div>
