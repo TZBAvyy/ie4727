@@ -53,6 +53,7 @@ body {
   text-decoration: none;
   color: var(--text-brown);
   font-weight: 1000;
+  font-size: 1.3em;
 }
 
 .nav-links {
@@ -72,6 +73,7 @@ body {
 .content h2 {
   padding-top: 15px;
   padding-bottom: 15px;
+  font-size: 48px;
   font-weight: bolder;
 }
 
@@ -110,11 +112,92 @@ body {
   padding-bottom: 10px;
 }
 
-table {
-  height: 80%;
-  width: 90%;   
-  text-align: center;
+.menu-table{
+  margin: auto;
+  width: 80%;
+  height: 25%;
 }
-tr:nth-child(even) {
-  background-color: var(--dark-brown);  
+
+.menu-table td {
+  text-align: left;
+  font-size: 16px;
+  padding: 8px 12px;
+}
+
+.menu-table th {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.menu-table tr:nth-child(odd) {
+  background-color: var(--dark-brown);
+}
+
+.music-table {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  align-items: center;
+}
+
+.music-table th {
+  width: 100%;
+  background-color: var(--dark-brown);
+  text-align: left;
+  font-weight: bold;
+  margin: auto;
+  font-size: 24px;
+}
+
+.music-table td {
+  margin: auto;
+  padding: 8px 12px;
+}
+
+.music-table img {
+  width: 200px;
+  height: 200px;
+}
+
+.highlight {
+  color: var(--text-brown);
+  font-weight: bold;
+}
+
+audio {
+  margin-top: 5px;
+  width: 250px;
+}
+
+form { 
+  padding: 20px;
+  max-width: 600px;          
+}
+
+.form-row {
+  display: flex;
+  align-items: flex-start; 
+  margin-bottom: 15px;
+}
+
+label {
+  width: 120px;            
+  text-align: right;
+  margin-right: 15px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+input, textarea {
+  font-size: 24px;
+}
+
+button {  
+  font-size: 24px;
+  padding: 2.5px 5px;
+}
+
+p{
+  font-size: 24px;
 }
