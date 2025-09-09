@@ -146,12 +146,20 @@ body {
   flex-direction: column;
 }
 
-.form {
+.form-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 20px;
 }
 
-.form-buttons {
-  display: flex;
-  flex-direction: column;
+.form-item label {
+  width: 120px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.form-item input {
+  max-height: 20px;
 }
