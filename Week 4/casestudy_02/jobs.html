@@ -23,15 +23,17 @@
             <h2>Jobs at JavaJam</h2>
             <p>Want to work at JavaJam? Fill out the form below to start your application. Required fields are marked with an asterisk *</p>
 
-            <form action="post" class="form">
+            <form action="/show_post.php" method="post">
                 <div class="form-item">
-                    <label for="name">* Name:</label><br>
-                    <input type="text" id="name" name="name" required><br><br>
+                    <label for="name">*Name:</label><br>
+                    <input type="text" id="name" name="name" required
+                    placeholder="Enter your name here"><br><br>
                 </div>
 
                 <div class="form-item">
-                    <label for="email">* Email:</label><br>
-                    <input type="email" id="email" name="email" required><br><br>
+                    <label for="email">*Email:</label><br>
+                    <input type="email" id="email" name="email" required
+                    placeholder="Enter your Email-ID here"><br><br>
                 </div>
 
                 <div class="form-item">
@@ -40,14 +42,13 @@
                 </div>
 
                 <div class="form-item">
-                    <label for="experience">* Experience:</label><br>
-                    <textarea id="experience" name="experience" rows="4" cols="50" required></textarea><br><br>
+                    <label for="experience">*Experience:</label><br>
+                    <textarea id="experience" name="experience" rows="4" cols="50" required
+                    placeholder="Enter your past experience here"></textarea><br><br>
                 </div>
 
-                <div class="form-buttons">
-                    <button>Clear</button>
-                    <input type="submit" value="Apply Now">
-                </div>
+                <button>Clear</button><br><br>
+                <input type="submit" value="Apply Now">
             </form>
         </div>
         <footer class="footer">
