@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaJam Coffee House</title>
     <link rel="stylesheet" href="base.css">
+    <script type="module" src="./formvalidation.js"></script>
 </head>
 <body>
     <div class="container">
@@ -23,7 +24,7 @@
             <h2>Jobs at JavaJam</h2>
             <p>Want to work at JavaJam? Fill out the form below to start your application. Required fields are marked with an asterisk *</p>
 
-            <form action="/show_post.php" method="post">
+            <form action="/show_post.php" method="post" id="form">
                 <div class="form-item">
                     <label for="name">*Name:</label><br>
                     <input type="text" id="name" name="name" required
@@ -55,6 +56,7 @@
             <small>
                 <i>
                     Copyright &copy; 2014 JavaJam Coffee House<br>
+        
                 </i>
             </small>
             <small>
