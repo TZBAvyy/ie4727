@@ -1,20 +1,22 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import Home from './routes/Home'
-import Music from './routes/Music'
+import Home from './routes/Home.jsx'
+import Music from './routes/Music.jsx'
+import Menu from './routes/Menu.jsx'
+import Jobs from './routes/Jobs.jsx'
 import './App.css'
 
 function App() {
 
   return (
     <BrowserRouter>
-    <div class="container">
+    <div className="container">
       {/* HEADER ZONE */}
-        <header class="header">
+        <header className="header">
             <h1>JavaJam Coffee House</h1>
         </header>
 
         <nav id="left-col">
-            <div class="nav-links">
+            <div className="nav-links">
                 <Link to="/">Home</Link>
                 <Link to="/menu">Menu</Link>
                 <Link to="/music">Music</Link>
@@ -23,15 +25,17 @@ function App() {
         </nav>
 
       {/* CONTENT ZONE */}
-      <div class="content">
+      <div className="content">
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route path="/music" element={<Music/>} />
+          <Route path="/menu" element={<Menu/>} />
+          <Route path="/jobs" element={<Jobs/>} />
         </Routes>
       </div>
 
       {/* FOOTER ZONE */}
-      <footer class="footer">
+      <footer className="footer">
         <small>
             <i>
                 Copyright &copy; 2014 JavaJam Coffee House<br/>

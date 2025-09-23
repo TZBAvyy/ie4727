@@ -1,0 +1,24 @@
+.menu-table {
+  justify-self: center;
+}
+
+.menu-item {
+  text-align: center;
+}
+
+.menu-table td {
+  padding: 10px;
+}
+
+.dark-row {
+  background-color: var(--dark-brown);
+}
+
+
+.quantity-input {
+  max-width: 30px;
+}
+
+.subtotal-input {
+  max-width: 50px;
+}

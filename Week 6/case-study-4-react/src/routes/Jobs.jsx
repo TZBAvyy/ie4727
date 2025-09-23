@@ -1,15 +1,15 @@
-import './Home.css'
+// import './Jobs.css'
 import RoadImage from '../assets/image.jpg'
 
-const Home = () => {
+const Jobs = () => {
 
     return (
 <>
     <h2>Follow the Winding Road to JavaJam</h2>
-    <div className="image-section">
+    <div class="image-section">
         <img src={RoadImage} alt="Road Image" width="50%" />
-        <div className="image-text">
-            <ul className="item-list">
+        <div class="image-text">
+            <ul class="item-list">
                 <li>Specialty Coffee and Tea</li>
                 <li>Bagels, Muffins, and Organic Snacks</li>
                 <li>Music and Poetry Readings</li>
@@ -22,4 +22,4 @@ const Home = () => {
     
 }
 
-export default Home;
+export default Jobs;

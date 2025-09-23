@@ -10,13 +10,13 @@ const Music = () => {
 <>
     <h2>Music at JavaJam</h2>            
     <p>JavaJam Coffee House features live music every Friday night. Join us for an evening of great tunes and good vibes!</p>
-    <table class="music-table">
+    <table className="music-table">
         <tbody>
-            <tr class="light-row">
+            <tr className="light-row">
                 <td ><strong>JANUARY</strong></td>
             </tr>
             <tr>
-                <td class="artist-row">
+                <td className="artist-row">
                     <img src={Artist1} width="100px" height="100px" alt="Artist" />
                     <div>
                         <p>Melanie Morris entertains with her melodic folk style</p>
@@ -27,11 +27,11 @@ const Music = () => {
                     </div>
                 </td>
             </tr>
-            <tr class="light-row">
+            <tr className="light-row">
                 <td ><strong>FEBRUARY</strong></td>
             </tr>
             <tr>
-                <td class="artist-row">
+                <td className="artist-row">
                     <img src={Artist2} width="100px" height="100px" alt="Artist" />
                     <div>
                         <p>Tahoe Greg is back from his tour. New songs. New stories.</p>
