@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Home from './routes/Home'
+import Music from './routes/Music'
 import './App.css'
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <div class="content">
         <Routes>
           <Route exact path="/" element={<Home/>} />
+          <Route path="/music" element={<Music/>} />
         </Routes>
       </div>
 

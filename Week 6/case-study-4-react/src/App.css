@@ -75,26 +75,6 @@
   background-color: var(--dark-brown);
 }
 
-.light-row {
-  background-color: var(--light-brown);
-}
-
-.music-table {
-  margin-top: 15px;
-  justify-self: center;
-}
-
-.artist-row {
-  display: flex;
-  gap: 30px;
-  padding-left: 30px;
-}
-
-.artist-row div {
-  display: flex;
-  flex-direction: column;
-}
-
 .form-item {
   margin-top: 10px;
   margin-bottom: 10px;
