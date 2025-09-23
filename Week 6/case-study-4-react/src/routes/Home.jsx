@@ -1,4 +1,4 @@
-import '../App.css'
+import './Home.css'
 import RoadImage from '../assets/image.jpg'
 
 const Home = () => {

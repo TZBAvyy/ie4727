@@ -1,0 +1,30 @@
+
+.content h2 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: bolder;
+}
+
+.image-section {
+  display: flex;
+  flex-direction: row;
+  height: 70%;
+  gap: 20px;
+  padding-left: 40px;
+}
+
+.image-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-list li {
+  margin: 0;
+  padding: 0 0 0 20px;
+  list-style: none;
+  background-image: url('../assets/coffee-icon-png-2.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 15px;
+}

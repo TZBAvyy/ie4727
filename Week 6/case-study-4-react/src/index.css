@@ -1,0 +1,27 @@
+:root {
+  --dark-brown: #d1b38d;
+  --light-brown: #e2d1b3;
+  --lighter-brown: #f5f5dd;
+  --text-brown: #694936;
+  --background: rgba(235,230,174,255);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  min-width: 800px;
+  color: var(--text-brown)
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+    background-color: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

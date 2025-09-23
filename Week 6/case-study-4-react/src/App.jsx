@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Home from './routes/Home'
 import './App.css'
 
@@ -14,10 +14,10 @@ function App() {
 
         <nav id="left-col">
             <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="menu.html">Menu</a>
-                <a href="music.html">Music</a>
-                <a href="jobs.html">Jobs</a>
+                <Link to="/">Home</Link>
+                <Link to="/menu">Menu</Link>
+                <Link to="/music">Music</Link>
+                <Link to="/jobs">Jobs</Link>
             </div>
         </nav>
 
