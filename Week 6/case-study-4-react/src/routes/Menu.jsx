@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import './Menu.css'
 
 const Menu = () => {
-    const MenuItems = [
+    let MenuItems = [
         {
             "name":"Just Java",
             "desc":"Regular house blend, decaffeinated coffee, or flavor of the day.",
@@ -42,6 +43,50 @@ const Menu = () => {
             ]
         },
     ];
+
+    let [values, setValues] = useState(new Array(MenuItems.length));
+    let [qty, setQtys] = useState(new Array(MenuItems.length));
+    let [subtotals, setSubtotals] = useState(new Array(MenuItems.length));
+
+    function handleChange(e) {
+        const item_subtotal = parseFloat(item_value) * parseInt(quantity_value)
+        subtotal_input.value = `${item_subtotal.toFixed(2)}`;
+        const total_result = parseFloat(subtotal_1_input.value) + parseFloat(subtotal_2_input.value) + parseFloat(subtotal_3_input.value);
+        total_input.value = `${total_result.toFixed(2)}`
+    }
+
+    quantity_1_input.addEventListener("input", (e) => {
+        updateTotals(item_1_value, quantity_1_input.value, subtotal_1_input);
+    })
+
+    quantity_2_input.addEventListener("input", (e) => {
+        updateTotals(item_2_value, quantity_2_input.value, subtotal_2_input);
+    })
+
+    quantity_3_input.addEventListener("input", (e) => {
+        updateTotals(item_3_value, quantity_3_input.value, subtotal_3_input);
+    })
+
+    for (let i=0; i < item_1_radios.length ; i++) {
+        item_1_radios[i].addEventListener("click", (e) => {
+            item_1_value = item_1_radios[i].value;
+            updateTotals(item_1_value, quantity_1_input.value, subtotal_1_input);
+        })
+    }
+
+    for (let i=0; i < item_2_radios.length ; i++) {
+        item_2_radios[i].addEventListener("click", (e) => {
+            item_2_value = item_2_radios[i].value;
+            updateTotals(item_2_value, quantity_2_input.value, subtotal_2_input);
+        })
+    }
+
+    for (let i=0; i < item_3_radios.length ; i++) {
+        item_3_radios[i].addEventListener("click", (e) => {
+            item_3_value = item_3_radios[i].value;
+            updateTotals(item_3_value, quantity_3_input.value, subtotal_3_input);
+        })
+    }
 
     return (
 <>
