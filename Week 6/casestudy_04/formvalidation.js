@@ -5,7 +5,7 @@ const exp_input = document.getElementById("experience");
 const form = document.getElementById("form");
 
 const name_exp = /^[A-Z][a-z]+ [A-Z][a-z]+/;
-const email_exp = /^[\w.-]+@(\w+\.){1,3}\w{2,3}$/;
+const email_exp = /^[\w][\w.-]+@(\w+\.){1,3}\w{2,3}$/;
 
 form.addEventListener("submit", (e) => {
     const name_val = name_input.value; 
@@ -27,9 +27,9 @@ form.addEventListener("submit", (e) => {
         return;
     }
 
-    if (date != "") {
+    if (start_date_val != "") {
         let currentDate = new Date();
-        let inputDate = new Date(date);
+        let inputDate = new Date(start_date_val);
         currentDate.setHours(0,0,0,0);
         inputDate.setHours(0,0,0,0);
 
