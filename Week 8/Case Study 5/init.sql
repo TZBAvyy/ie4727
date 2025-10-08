@@ -1,8 +1,9 @@
-CREATE TABLE `Customer`(
-    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` TEXT NOT NULL,
-    `email` TEXT NOT NULL
-);
+DROP TABLE IF EXISTS `OrderItem`;
+DROP TABLE IF EXISTS `Order`;
+DROP TABLE IF EXISTS `DrinkCategory`;
+DROP TABLE IF EXISTS `Drink`;
+DROP TABLE IF EXISTS `Customer`;
+
 CREATE TABLE `Drink`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` TEXT NOT NULL,
@@ -10,8 +11,7 @@ CREATE TABLE `Drink`(
 );
 CREATE TABLE `Order`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `customer_id` BIGINT UNSIGNED NOT NULL,
-    `date_of_purchase` DATE NOT NULL
+    `date_of_purchase` DATETIME NOT NULL
 );
 CREATE TABLE `OrderItem`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -22,11 +22,9 @@ CREATE TABLE `OrderItem`(
 CREATE TABLE `DrinkCategory`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `drink_id` BIGINT UNSIGNED NOT NULL,
-    `price` FLOAT NOT NULL,
+    `price` FLOAT(53) NOT NULL,
     `category` TEXT NOT NULL
 );
-ALTER TABLE
-    `Order` ADD CONSTRAINT `order_customer_id_foreign` FOREIGN KEY(`customer_id`) REFERENCES `Customer`(`id`);
 ALTER TABLE
     `DrinkCategory` ADD CONSTRAINT `drinkcategory_drink_id_foreign` FOREIGN KEY(`drink_id`) REFERENCES `Drink`(`id`);
 ALTER TABLE

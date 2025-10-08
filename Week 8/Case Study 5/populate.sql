@@ -1,9 +1,3 @@
--- Dummy data for 'Customer' table
-INSERT INTO Customer (name, email) VALUES
-('admin', 'admin@example.com'),
-('john_doe', 'john@example.com'),
-('jane_smith', 'jane@example.com');
-
 -- Dummy data for 'Drink' table
 INSERT INTO Drink (name, `desc`) VALUES
 ('Just Java', 'Regular house blend, decaffeinated coffee, or flavor of the day.'),
@@ -19,9 +13,9 @@ INSERT INTO DrinkCategory (drink_id, price, category) VALUES
 (3, 5.75, 'Double');
 
 -- Dummy data for 'Order' table
-INSERT INTO `Order` (customer_id, date_of_purchase) VALUES
-(2, '2024-06-01 12:30:00'),
-(3, '2024-06-02 18:45:00');
+INSERT INTO `Order` (date_of_purchase) VALUES
+('2024-06-01 12:30:00'),
+('2024-06-02 18:45:00');
 
 -- Dummy data for 'OrderItem' table
 INSERT INTO OrderItem (order_id, drink_id, quantity) VALUES

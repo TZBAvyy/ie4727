@@ -15,7 +15,7 @@
         <nav id="left-col">
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="menu.html">Menu</a>
+                <a href="menu.php">Menu</a>
                 <a href="music.html">Music</a>
                 <a href="jobs.html">Jobs</a>
             </div>
@@ -24,40 +24,45 @@
             <h2>Coffee at JavaJam</h2>
             <table class="menu-table">
                 <tbody>
-                    <tr>
-                        <td class="dark-row menu-item"><strong>Just Java</strong></td>
-                        <td class="dark-row">Regular house blend, decaffeinated coffee, or flavor of the day. 
-                            <br><strong>
-                                Endless Cup $2.00 <input type="radio" name="item-1" value="2">
-                                NIL <input type="radio" name="item-1" value="0" checked="checked">
-                            </strong>
-                        </td>
-                        <td>Qty: <input class="quantity-input" type="number" name="quantity-item-1" id="quantity-item-1" min="0" max="10" step="1" value="0"></td>
-                        <td>$<input class="subtotal-input" type="text" name="subtotal-item-1" id="subtotal-item-1" readonly value="0.00"></td>
-                    </tr>
-                    <tr>
-                        <td class="menu-item"><strong>Cafe au Lait</strong></td>
-                        <td>House blended coffee infused into a smooth, steamed milk.
-                            <br><strong>
-                                Single $2.00 <input type="radio" name="item-2" value="2">
-                                Double $3.00 <input type="radio" name="item-2" value="3">
-                                NIL <input type="radio" name="item-2" value="0" checked="checked">
-                            </strong>
-                        </td>
-                        <td>Qty: <input class="quantity-input" type="number" name="quantity-item-2" id="quantity-item-2" min="0" max="10" step="1" value="0"></td>
-                        <td>$<input class="subtotal-input" type="text" name="subtotal-item-2" id="subtotal-item-2" readonly value="0.00"></td>
-                    </tr>
-                    <tr>
-                        <td class="dark-row menu-item"><strong>Iced Cappuccino</strong></td>
-                        <td class="dark-row">Sweetened espresso blended with icy-cold milk and served in a chilled glass.
-                            <br><strong>
-                                Single $4.75 <input type="radio" name="item-3" value="4.75">
-                                Double $5.75 <input type="radio" name="item-3" value="5.75">
-                                NIL <input type="radio" name="item-3" value="0" checked="checked">
-                            </strong></td>
-                        <td>Qty: <input class="quantity-input" type="number" name="quantity-item-3" id="quantity-item-3" min="0" max="10" step="1" value="0"></td>
-                        <td>$<input class="subtotal-input" type="text" name="subtotal-item-3" id="subtotal-item-3" readonly value="0.00"></td>
-                    </tr>
+                    <?php
+                    // PHP code to generate table rows for menu items
+                    @ $db = new mysqli('localhost','root','','ie4727_case_study_5');
+
+                    if (mysqli_connect_errno()) {
+                        echo "Error: Could not connect to database.  Please try again later.";
+                        exit;
+                    }
+
+                    $all_drinks_query = "SELECT * FROM drink;";
+                    $drinks = $db->query($all_drinks_query);
+
+                    $count = 0;
+                    foreach ($drinks as $drink) {
+                        $drink_cat_query = "SELECT `id`, `drink_id`, `price`, `category` FROM `drinkcategory` WHERE drink_id=".$drink['id'].";";
+                        $drink_cat = $db->query($drink_cat_query);
+                        if ($drink_cat === false) {
+                            continue;
+                        }
+
+                        $count = $count + 1;
+                        if ($count % 2 == 0) {
+                            $top_output_html = "<tr><td class='menu-item'><strong>".$drink['name']."</strong></td><td>".$drink['desc']."<br><strong>";
+                        } else {
+                            $top_output_html = "<tr><td class='dark-row menu-item'><strong>".$drink['name']."</strong></td><td class='dark-row'>".$drink['desc']."<br><strong>";
+                        }
+                        $drink_options_html = "";
+                        foreach ($drink_cat as $cat) {
+                            $drink_options_html = $drink_options_html.$cat['category']." $".$cat['price']." <input type='radio' name='item-".$drink['id']."' value='".$cat['price']."'> ";
+                        }
+                        $drink_options_html = $drink_options_html."NIL <input type='radio' name='item-".$drink['id']."' value='0' checked='checked'></strong></td>";
+                        $bot_output_html = "
+                            <td>Qty: <input class='quantity-input' type='number' name='quantity-item-1' id='quantity-item-".$drink['id']."' min='0' max='10' step='1' value='0'></td>
+                            <td>$<input class='subtotal-input' type='text' name='subtotal-item-".$drink['id']."' id='subtotal-item-".$drink['id']."' readonly value='0.00'></td>
+                        </tr>";
+                        echo $top_output_html.$drink_options_html.$bot_output_html;
+                    }
+                    $db->close();
+                    ?>
                     <tr>
                         <td></td>
                         <td></td>
