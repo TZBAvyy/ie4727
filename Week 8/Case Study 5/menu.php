@@ -52,12 +52,12 @@
                         }
                         $drink_options_html = "";
                         foreach ($drink_cat as $cat) {
-                            $drink_options_html = $drink_options_html.$cat['category']." $".$cat['price']." <input type='radio' name='item-".$drink['id']."' value='".$cat['price']."'> ";
+                            $drink_options_html = $drink_options_html.$cat['category']." $".$cat['price']." <input type='radio' name='item-".$count."' value='".$cat['price']."'> ";
                         }
-                        $drink_options_html = $drink_options_html."NIL <input type='radio' name='item-".$drink['id']."' value='0' checked='checked'></strong></td>";
+                        $drink_options_html = $drink_options_html."NIL <input type='radio' name='item-".$count."' value='0' checked='checked'></strong></td>";
                         $bot_output_html = "
-                            <td>Qty: <input class='quantity-input' type='number' name='quantity-item-1' id='quantity-item-".$drink['id']."' min='0' max='10' step='1' value='0'></td>
-                            <td>$<input class='subtotal-input' type='text' name='subtotal-item-".$drink['id']."' id='subtotal-item-".$drink['id']."' readonly value='0.00'></td>
+                            <td>Qty: <input class='quantity-input' type='number' name='quantity-item-1' id='quantity-item-".$count."' min='0' max='10' step='1' value='0'></td>
+                            <td>$<input class='subtotal-input' type='text' name='subtotal-item-".$count."' id='subtotal-item-".$count."' readonly value='0.00'></td>
                         </tr>";
                         echo $top_output_html.$drink_options_html.$bot_output_html;
                     }
