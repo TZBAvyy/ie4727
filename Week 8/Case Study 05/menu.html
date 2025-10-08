@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaJam Coffee House</title>
+    <link rel="stylesheet" href="base.css">
+    <script type="module" src="MenuUpdate.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class = "header">
+            <h1>JavaJam Coffee House</h1>
+        </header>
+        <nav id="left-col">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="music.html">Music</a>
+                <a href="jobs.html">Jobs</a>
+            </div>
+        </nav>
+    <div class = "content">
+        <h2>Click to update product prices:</h2>
+            <table class="menu-table">
+                <tr>
+                    <th><strong>Just Java</strong></th>
+                    <td>Regular house blend, decaffeinated coffee, or flavor of the day.<br>
+                    <strong>
+                        <input type="radio" name = "JustJava" id="Qty_Cafe_Single1" value=1> Single $1.00
+                        <input type="radio" name = "JustJava" id="Qty_Cafe_Double1" value=2> Double $2.00
+                    </strong></td>
+                    <td><input type="number" id="QtyCafe1" min="0" value=0></td>
+                    <td><input type="number" id="Price_Cafe1" value=0 readonly></td>
+                </tr>
+                <tr>
+                    <th><strong>Cafe au Lait</strong></th>
+                    <td>
+                        House blended coffee infused into a smooth, steamed milk.<br>
+                    <strong>
+                    <input type="radio" name="CafeAuLait" id="Qty_Cafe_Single2" value=2> Single $2.00
+                    <input type="radio" name="CafeAuLait" id="Qty_Cafe_Double2" value=3> Double $3.00
+                    </strong>
+                    </td>
+                    <td><input type="number" id="QtyCafe2" min="0" value=0></td>
+                    <td><input type="number" id="Price_Cafe2" value=0 readonly></td>
+                </tr>
+                <tr>
+                    <th><strong>Iced Cappuccino</strong></th>
+                    <td>Sweetened espresso blended with icy-cold milk and served in a chilled glass.<br>
+                    <strong>
+                        <input type="radio" name="IcedCappuccino" id="Qty_Cafe_Single3" value=5> Single $5.00
+                        <input type="radio" name="IcedCappuccino" id="Qty_Cafe_Double3" value=6> Double $6.00
+                    </strong> 
+                    </td>
+                    <td><input type="number" id="QtyCafe3" min="0" value=0></td>
+                    <td><input type="text" id="Price_Cafe3" value=0 readonly></td>
+                </tr>
+                <tr>
+                <td colspan="3" style="text-align:right;"><strong>Total Price:</strong></td>
+                <td><input type="text" id="Total_Price" readonly></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align:right;"><button type="button" onclick=>Submit</button></td>
+                </tr>
+
+            </table>
+    </div>
+    <footer class = "footer">
+        <small>
+            <i>
+                Copyright &copy; 2014 JavaJam Coffee House<br>
+            </i>
+        </small>
+        <small>
+            <a href="mailto:rongjun@choo.com">
+                rongjun@choo.com
+            </a>
+        </small>
+    </footer>
+    </div>
+</body>
+</html>
