@@ -1,0 +1,11 @@
+USE javajam;
+
+DELETE FROM orders;
+DELETE FROM receipts;
+DELETE FROM categories;
+DELETE FROM drinks;
+
+ALTER TABLE orders AUTO_INCREMENT = 1;
+ALTER TABLE receipts AUTO_INCREMENT = 1;
+ALTER TABLE categories AUTO_INCREMENT = 1;
+ALTER TABLE drinks AUTO_INCREMENT = 1;

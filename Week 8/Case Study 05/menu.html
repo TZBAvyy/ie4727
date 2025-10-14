@@ -21,7 +21,8 @@
             </div>
         </nav>
     <div class = "content">
-        <h2>Click to update product prices:</h2>
+        <h2>Coffee at JavaJam</h2>
+        <form action="checkout.php" method="post">
             <table class="menu-table">
                 <tr>
                     <th><strong>Just Java</strong></th>
@@ -30,8 +31,8 @@
                         <input type="radio" name = "JustJava" id="Qty_Cafe_Single1" value=1> Single $1.00
                         <input type="radio" name = "JustJava" id="Qty_Cafe_Double1" value=2> Double $2.00
                     </strong></td>
-                    <td><input type="number" id="QtyCafe1" min="0" value=0></td>
-                    <td><input type="number" id="Price_Cafe1" value=0 readonly></td>
+                    <td><input type="number" name="QtyCafe1" id="QtyCafe1" min="0" value=0></td>
+                    <td><input type="number" name="Price_Cafe1" id="Price_Cafe1" value=0 readonly></td>
                 </tr>
                 <tr>
                     <th><strong>Cafe au Lait</strong></th>
@@ -42,8 +43,8 @@
                     <input type="radio" name="CafeAuLait" id="Qty_Cafe_Double2" value=3> Double $3.00
                     </strong>
                     </td>
-                    <td><input type="number" id="QtyCafe2" min="0" value=0></td>
-                    <td><input type="number" id="Price_Cafe2" value=0 readonly></td>
+                    <td><input type="number" name="QtyCafe2" id="QtyCafe2" min="0" value=0></td>
+                    <td><input type="number" name="Price_Cafe2" id="Price_Cafe2" value=0 readonly></td>
                 </tr>
                 <tr>
                     <th><strong>Iced Cappuccino</strong></th>
@@ -53,18 +54,21 @@
                         <input type="radio" name="IcedCappuccino" id="Qty_Cafe_Double3" value=6> Double $6.00
                     </strong> 
                     </td>
-                    <td><input type="number" id="QtyCafe3" min="0" value=0></td>
-                    <td><input type="text" id="Price_Cafe3" value=0 readonly></td>
+                    <td><input type="number" name="QtyCafe3" id="QtyCafe3" min="0" value=0></td>
+                    <td><input type="text" name="Price_Cafe3" id="Price_Cafe3" value=0 readonly></td>
                 </tr>
                 <tr>
                 <td colspan="3" style="text-align:right;"><strong>Total Price:</strong></td>
-                <td><input type="text" id="Total_Price" readonly></td>
+                <td><input type="text" name="Total_Price" id="Total_Price" readonly></td>
                 </tr>
                 <tr>
-                    <td colspan="4" style="text-align:right;"><button type="button" onclick=>Submit</button></td>
+                    <td colspan="4" style="text-align:right;">
+                        <button type="submit">Submit Order</button>
+                    </td>
                 </tr>
-
             </table>
+        </form> 
+
     </div>
     <footer class = "footer">
         <small>

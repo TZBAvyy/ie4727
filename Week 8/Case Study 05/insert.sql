@@ -1,4 +1,4 @@
-use javacoffee;
+use javajam;
 
 create table drinks (
     ID int unsigned not NULL auto_increment primary key,
