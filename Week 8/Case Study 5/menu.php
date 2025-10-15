@@ -1,3 +1,18 @@
+<?php
+// PHP code to generate table rows for menu items
+@ $db = new mysqli('localhost','root','','ie4727_case_study_5');
+
+if (mysqli_connect_errno()) {
+    echo "Error: Could not connect to database.  Please try again later.";
+    exit;
+}
+
+$all_drinks_query = "SELECT * FROM drink;";
+$drinks = $db->query($all_drinks_query);
+
+$count = 0;
+?>
+                    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,45 +37,32 @@
         </nav>
         <div class="content">
             <h2>Coffee at JavaJam</h2>
+            <form action="./submit_order.php" method="post">
             <table class="menu-table">
                 <tbody>
-                    <?php
-                    // PHP code to generate table rows for menu items
-                    @ $db = new mysqli('localhost','root','','ie4727_case_study_5');
-
-                    if (mysqli_connect_errno()) {
-                        echo "Error: Could not connect to database.  Please try again later.";
-                        exit;
-                    }
-
-                    $all_drinks_query = "SELECT * FROM drink;";
-                    $drinks = $db->query($all_drinks_query);
-
-                    $count = 0;
-                    foreach ($drinks as $drink) {
+                    <?php foreach ($drinks as $drink) { 
                         $drink_cat_query = "SELECT `id`, `drink_id`, `price`, `category` FROM `drinkcategory` WHERE drink_id=".$drink['id'].";";
                         $drink_cat = $db->query($drink_cat_query);
                         if ($drink_cat === false) {
                             continue;
-                        }
-
+                        }    
                         $count = $count + 1;
-                        if ($count % 2 == 0) {
-                            $top_output_html = "<tr><td class='menu-item'><strong>".$drink['name']."</strong></td><td>".$drink['desc']."<br><strong>";
-                        } else {
-                            $top_output_html = "<tr><td class='dark-row menu-item'><strong>".$drink['name']."</strong></td><td class='dark-row'>".$drink['desc']."<br><strong>";
-                        }
-                        $drink_options_html = "";
-                        foreach ($drink_cat as $cat) {
-                            $drink_options_html = $drink_options_html.$cat['category']." $".$cat['price']." <input type='radio' name='item-".$count."' value='".$cat['price']."'> ";
-                        }
-                        $drink_options_html = $drink_options_html."NIL <input type='radio' name='item-".$count."' value='0' checked='checked'></strong></td>";
-                        $bot_output_html = "
-                            <td>Qty: <input class='quantity-input' type='number' name='quantity-item-1' id='quantity-item-".$count."' min='0' max='10' step='1' value='0'></td>
-                            <td>$<input class='subtotal-input' type='text' name='subtotal-item-".$count."' id='subtotal-item-".$count."' readonly value='0.00'></td>
-                        </tr>";
-                        echo $top_output_html.$drink_options_html.$bot_output_html;
-                    }
+                    ?>
+                    <tr>
+                        <td class="dark-row menu-item"><strong><?= htmlspecialchars($drink['name']) ?></strong></td>
+                        <td class="dark-row"><?= htmlspecialchars($drink['desc']) ?>
+                            <br><strong>
+                                <?php foreach ($drink_cat as $cat) { ?>
+                                    <?= htmlspecialchars($cat['category']) ?> $<?= htmlspecialchars($cat['price']) ?> <input type="radio" name="item-<?= $count ?>" value="<?= htmlspecialchars($cat['price']) ?>"> 
+                                    <?php } ?>
+                                NIL <input type="radio" name="item-<?= $count ?>" value="0" checked="checked">
+                            </strong>
+                        </td>
+                        <td>Qty: <input class="quantity-input" type="number" name="quantity-item-<?= $count ?>" id="quantity-item-<?= $count ?>" min="0" max="10" step="1" value="0"></td>
+                        <td>$<input class="subtotal-input" type="text" name="subtotal-item-" id="subtotal-item-<?= $count ?>" readonly value="0.00"></td>
+                    </tr>
+                    <?php 
+                    } 
                     $db->close();
                     ?>
                     <tr>
@@ -69,8 +71,16 @@
                         <td><p style="text-align:right">Total:</p></td>
                         <td>$<input class="subtotal-input" type="text" name="total" id="total" readonly value="0.00"></td>
                     </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><input type="submit" value="Place Order"></td>
+                    </tr>
                 </tbody>
             </table>
+            
+            </form>
         </div>
         <footer class="footer">
             <small>

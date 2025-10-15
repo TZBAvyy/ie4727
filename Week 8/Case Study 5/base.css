@@ -172,3 +172,8 @@ body {
 .subtotal-input {
   max-width: 50px;
 }
+
+.edit-check {
+  min-width: 100px;
+  min-height: 100px;
+}
