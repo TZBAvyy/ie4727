@@ -28,7 +28,7 @@ if (mysqli_connect_errno()) {
             </div>
         </nav>
         <div class="content">
-            <h2>Daily Sales Report</h2>
+            <h2>Sales Report</h2>
             <h3>Sales by Product</h3>
             <table class="menu-table">
             <tr>
@@ -39,6 +39,7 @@ if (mysqli_connect_errno()) {
             <?php 
             $drink_query = "SELECT d.id, d.name FROM drink d;";
             $drinks = $conn->query($drink_query);
+            $cat_array = [];
 
             foreach ($drinks as $drink) {
                 ?>
@@ -47,14 +48,20 @@ if (mysqli_connect_errno()) {
                 $total_qty = 0;
                 $total_sales = 0.0;
             
-                $cat_query = "SELECT dc.id, dc.price FROM drinkcategory dc WHERE dc.drink_id = ".$drink["id"].";";
+                $cat_query = "SELECT dc.id, dc.price, dc.category FROM drinkcategory dc WHERE dc.drink_id = ".$drink["id"].";";
                 $categories = $conn->query($cat_query);
                 foreach ($categories as $cat) {
+                    if (!array_key_exists($cat["category"], $cat_array)) {
+                        $cat_array[$cat["category"]] = ["total_sales" => 0.0, "total_qty" => 0];
+                    }
                     $order_query = "SELECT oi.drink_id, oi.quantity FROM orderitem oi WHERE oi.drink_id = ".$cat["id"].";";
                     $orders = $conn->query($order_query);
                     foreach ($orders as $order) {
                         $total_qty += $order["quantity"];
                         $total_sales += $order["quantity"] * $cat["price"];
+
+                        $cat_array[$cat["category"]]["total_sales"] += $order["quantity"] * $cat["price"];
+                        $cat_array[$cat["category"]]["total_qty"] += $order["quantity"];
                     }
                 }
             ?>
@@ -74,31 +81,11 @@ if (mysqli_connect_errno()) {
                 <th>Total Dollar Sales</th>
                 <th>Quantity Sales</th>
             </tr>
-            <?php 
-            $drink_query = "SELECT d.id, d.name FROM drink d;";
-            $drinks = $conn->query($drink_query);
-
-            foreach ($drinks as $drink) {
-                ?>
-                <tr>
-                <?php
-                $total_qty = 0;
-                $total_sales = 0.0;
-            
-                $cat_query = "SELECT dc.id, dc.price FROM drinkcategory dc WHERE dc.drink_id = ".$drink["id"].";";
-                $categories = $conn->query($cat_query);
-                foreach ($categories as $cat) {
-                    $order_query = "SELECT oi.drink_id, oi.quantity FROM orderitem oi WHERE oi.drink_id = ".$cat["id"].";";
-                    $orders = $conn->query($order_query);
-                    foreach ($orders as $order) {
-                        $total_qty += $order["quantity"];
-                        $total_sales += $order["quantity"] * $cat["price"];
-                    }
-                }
-            ?>
-            <td><?= $drink['name'] ?></td>
-            <td><?= number_format($total_sales, 2) ?></td>
-            <td><?= $total_qty ?></td>
+            <?php foreach ($cat_array as $key => $value) { ?>
+            <tr>
+                <td><?= $key ?></td>
+                <td><?= number_format($value['total_sales'], 2) ?></td>
+                <td><?= $value['total_qty'] ?></td>
             </tr>
             <?php
             }
