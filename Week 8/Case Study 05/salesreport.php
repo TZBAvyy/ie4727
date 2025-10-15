@@ -80,8 +80,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($best) {
         $productName = $best['Product'];
-
-        // Find popular option (Single/Double) of that product
         $sql2 = "
             SELECT c.name AS OptionName, SUM(o.quantity) AS Qty
             FROM orders o
@@ -114,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <nav id="left-col">
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="menu.html">Menu</a>
+                <a href="menu.php">Menu</a>
                 <a href="music.html">Music</a>
                 <a href="jobs.html">Jobs</a>
                 <a href="priceupdate.php">Update Prices</a>

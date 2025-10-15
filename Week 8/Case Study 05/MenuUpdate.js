@@ -1,103 +1,43 @@
-var CafeNode1 = document.getElementById("Qty_Cafe_Single1");
-var CafeNode2 = document.getElementById("Qty_Cafe_Double1");
-var CafeNode3 = document.getElementById("QtyCafe1");
+document.addEventListener("DOMContentLoaded", function () {
 
-CafeNode1.addEventListener("change", Cal_Cafe, false);
-CafeNode2.addEventListener("change", Cal_Cafe, false);
-CafeNode3.addEventListener("change", Cal_Cafe, false);
+  function updateTotal() {
+    const prices = [
+      parseFloat(document.getElementById("Price_Cafe1").value) || 0,
+      parseFloat(document.getElementById("Price_Cafe2").value) || 0,
+      parseFloat(document.getElementById("Price_Cafe3").value) || 0
+    ];
+    const total = prices.reduce((sum, val) => sum + val, 0);
+    document.getElementById("Total_Price").value = total.toFixed(2);
+  }
 
-function Cal_Cafe(event) {
-    var qtyCafechk = event.currentTarget;
-    var pos = qtyCafechk.value.search(/^[0-9]*$/);
-    if (pos != 0) {
-        alert("You entered (" + qtyCafechk.value + ") is not correct. \n" + "Only NUMBER are allowed.");
-        qtyCafechk.value = "";
-        document.getElementById("Price_Cafe1").value = "";
-        qtyCafechk.focus()  
-        return false;
-    }
-    if (CafeNode1.checked == true) {
-        var Total_Cafe_Price = CafeNode1.value * CafeNode3.value;
-        document.getElementById("Price_Cafe1").value = parseFloat(Total_Cafe_Price).toFixed(2);
-    }
-    if (CafeNode2.checked == true) {
-        Total_Cafe_Price = CafeNode2.value * CafeNode3.value;
-        document.getElementById("Price_Cafe1").value = parseFloat(Total_Cafe_Price).toFixed(2);
-    }
-    Cal_total();
-}
+  function setupProduct(singleId, doubleId, qtyId, priceId) {
+    const single = document.getElementById(singleId);
+    const double = document.getElementById(doubleId);
+    const qty = document.getElementById(qtyId);
+    const price = document.getElementById(priceId);
 
-var CafeNode4 = document.getElementById("Qty_Cafe_Single2");
-var CafeNode5 = document.getElementById("Qty_Cafe_Double2");
-var CafeNode6 = document.getElementById("QtyCafe2");
+    function calculate() {
+      if (!qty.value || isNaN(qty.value)) {
+        price.value = 0;
+        updateTotal();
+        return;
+      }
 
-CafeNode4.addEventListener("change", Cal_Cafe1, false);
-CafeNode5.addEventListener("change", Cal_Cafe1, false);
-CafeNode6.addEventListener("change", Cal_Cafe1, false);
+      let unitPrice = 0;
+      if (single.checked) unitPrice = parseFloat(single.value);
+      if (double.checked) unitPrice = parseFloat(double.value);
 
-function Cal_Cafe1(event) {
-    var qtyCafechk = event.currentTarget;
-    var pos = qtyCafechk.value.search(/^[0-9]*$/);
-    if (pos != 0) {
-        alert("You entered (" + qtyCafechk.value + ") is not correct. \n" + "Only NUMBER are allowed.");
-        qtyCafechk.value = "";
-        document.getElementById("Price_Cafe2").value = "";
-        qtyCafechk.focus()  
-        return false;
+      price.value = (unitPrice * qty.value).toFixed(2);
+      updateTotal();
     }
-    if (CafeNode4.checked == true) {
-        var Total_Cafe_Price1 = CafeNode4.value * CafeNode6.value;
-        document.getElementById("Price_Cafe2").value = parseFloat(Total_Cafe_Price1).toFixed(2);
-    }
-    if (CafeNode5.checked == true) {
-        Total_Cafe_Price1 = CafeNode5.value * CafeNode6.value;
-        document.getElementById("Price_Cafe2").value = parseFloat(Total_Cafe_Price1).toFixed(2);
-    }
-    Cal_total();
-}
 
-var CafeNode7 = document.getElementById("Qty_Cafe_Single3");
-var CafeNode8 = document.getElementById("Qty_Cafe_Double3");
-var CafeNode9 = document.getElementById("QtyCafe3");
+    [single, double, qty].forEach(input => {
+      if (input) input.addEventListener("change", calculate);
+    });
+  }
 
-CafeNode7.addEventListener("change", Cal_Cafe2, false);
-CafeNode8.addEventListener("change", Cal_Cafe2, false);
-CafeNode9.addEventListener("change", Cal_Cafe2, false);
+  setupProduct("Qty_Cafe_Single1", "Qty_Cafe_Double1", "QtyCafe1", "Price_Cafe1");
+  setupProduct("Qty_Cafe_Single2", "Qty_Cafe_Double2", "QtyCafe2", "Price_Cafe2");
+  setupProduct("Qty_Cafe_Single3", "Qty_Cafe_Double3", "QtyCafe3", "Price_Cafe3");
 
-function Cal_Cafe2(event) {
-    var qtyCafechk = event.currentTarget;
-    var pos = qtyCafechk.value.search(/^[0-9]*$/);
-    if (pos != 0) {
-        alert("You entered (" + qtyCafechk.value + ") is not correct. \n" + "Only NUMBER are allowed.");
-        qtyCafechk.value = "";
-        document.getElementById("Price_Cafe3").value = "";
-        qtyCafechk.focus()
-        return false;
-    }
-    if (CafeNode7.checked == true) {
-        var Total_Cafe_Price2 = CafeNode7.value * CafeNode9.value;
-        document.getElementById("Price_Cafe3").value = parseFloat(Total_Cafe_Price2).toFixed(2);
-    }
-    if (CafeNode8.checked == true) {
-        Total_Cafe_Price2 = CafeNode8.value * CafeNode9.value;
-        document.getElementById("Price_Cafe3").value = parseFloat(Total_Cafe_Price2).toFixed(2);
-    }
-    Cal_total();
-}
-
-function Cal_total() {
-    var total = 0;
-    var Price1 = document.getElementById("Price_Cafe1").value;
-    var Price2 = document.getElementById("Price_Cafe2").value;
-    var Price3 = document.getElementById("Price_Cafe3").value;
-    if (Price1 != "") {
-        total = total + parseFloat(Price1);
-    }
-    if (Price2 != "") {
-        total = total + parseFloat(Price2);
-    }
-    if (Price3 != "") {
-        total = total + parseFloat(Price3);
-    }
-    document.getElementById("Total_Price").value = parseFloat(total).toFixed(2);
-}
+});
