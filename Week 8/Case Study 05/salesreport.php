@@ -100,56 +100,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sales Report - JavaJam Coffee House</title>
-<link rel="stylesheet" href="base.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Report - JavaJam Coffee House</title>
+    <link rel="stylesheet" href="base.css">
 </head>
 <body>
-<div class="container">
-<header class="header">
-  <h1>JavaJam Coffee House</h1>
-</header>
+    <div class="container">
+        <header class="header">
+            <h1>JavaJam Coffee House</h1>
+        </header>
 
-<nav id="left-col">
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="music.html">Music</a>
-    <a href="jobs.html">Jobs</a>
-    <a href="priceupdate.php">Admin: Price Update</a>
-    <a href="salesreport.php">Admin: Sales Report</a>
-  </div>
-</nav>
+        <nav id="left-col">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="music.html">Music</a>
+                <a href="jobs.html">Jobs</a>
+                <a href="priceupdate.php">Update Prices</a>
+                <a href="salesreport.php">Sales Report</a>
+            </div>
+        </nav>
 
-<div class="content">
-  <h2>Daily Sales Report</h2>
-  <form method="POST">
-    <table class="menu-table">
-      <tr>
-        <th>Click to generate daily sales report:</th>
-        <td>
-          <label><input type="checkbox" name="by_product"> Total dollar and quantity sales by products</label><br>
-          <label><input type="checkbox" name="by_category"> Total dollar and quantity sales by categories</label>
-        </td>
-      </tr>
-      <tr>
-        <th>Popular option of best selling product:</th>
-        <td><?= $popularOption ?: "—" ?></td>
-      </tr>
-      <tr>
-        <td colspan="2" style="text-align:right;"><button type="submit">Generate Report</button></td>
-      </tr>
-    </table>
-  </form>
-  <?= $productReport ?>
-  <?= $categoryReport ?>
-</div>
+        <div class="content">
+             <h2>Daily Sales Report</h2>
+                <form method="POST">
+                    <table class="menu-table">
+                        <tr>
+                            <th>Click to generate daily sales report:</th>
+                                <td>
+                                    <label><input type="checkbox" name="by_product"> Total dollar and quantity sales by products</label><br>
+                                    <label><input type="checkbox" name="by_category"> Total dollar and quantity sales by categories</label>
+                                </td>
+                        </tr>
+                        <tr>
+                            <th>Popular option of best selling product:</th>
+                            <td><?= $popularOption ?: "—" ?></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align:right;"><button type="submit">Generate Report</button></td>
+                        </tr>
+                    </table>
+                </form>
+                <?= $productReport ?>
+                <?= $categoryReport ?>
+        </div>
 
-<footer class="footer">
-  <small><i>Copyright &copy; 2014 JavaJam Coffee House</i></small><br>
-  <small><a href="mailto:rongjun@choo.com">rongjun@choo.com</a></small>
-</footer>
-</div>
+        <footer class="footer">
+            <small><i>Copyright &copy; 2014 JavaJam Coffee House</i></small><br>
+            <small><a href="mailto:rongjun@choo.com">rongjun@choo.com</a></small>
+        </footer>
+    </div>
 </body>
 </html>

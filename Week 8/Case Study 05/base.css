@@ -44,7 +44,7 @@ body {
 
 #left-col {
   float: left;
-  width: 100px;
+  width: 200px;
   height: 80%;
   background-color: var(--light-brown);
   font: sans-serif;
