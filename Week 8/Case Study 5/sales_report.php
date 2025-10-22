@@ -5,6 +5,13 @@ if (mysqli_connect_errno()) {
     echo "Error: Could not connect to database.  Please try again later.";
     exit;
 }
+$pop_query = "SELECT d.name AS ProductName, c.category AS OptionName, o.quantity AS Qty, o.quantity * c.price AS TotalSales 
+            FROM orderitem o 
+            JOIN drinkcategory c ON o.drink_id = c.id 
+            JOIN drink d ON c.drink_id = d.id 
+            ORDER BY TotalSales DESC 
+            LIMIT 1;";
+$pop = $conn->query($pop_query)->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +32,8 @@ if (mysqli_connect_errno()) {
                 <a href="menu.php">Menu</a>
                 <a href="music.html">Music</a>
                 <a href="jobs.html">Jobs</a>
+                <a href="menu_edit.php">Edit Menu</a>
+                <a href="sales_report.php">Show Sales Report</a>
             </div>
         </nav>
         <div class="content">
@@ -91,6 +100,7 @@ if (mysqli_connect_errno()) {
             }
             ?>
             </table>
+            <h3>Popular option of best selling product: <strong><?=$pop['OptionName']?></strong> of <strong><?=$pop['ProductName']?></strong></h3>
         </div>
         <footer class="footer">
             <small>

@@ -31,6 +31,8 @@ $count = 0;
                 <a href="menu.php">Menu</a>
                 <a href="music.html">Music</a>
                 <a href="jobs.html">Jobs</a>
+                <a href="menu_edit.php">Edit Menu</a>
+                <a href="sales_report.php">Show Sales Report</a>
             </div>
         </nav>
         <div class="content">
