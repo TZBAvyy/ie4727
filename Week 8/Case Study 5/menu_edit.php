@@ -35,7 +35,7 @@ $count = 0;
         </nav>
         <div class="content">
             <h2>Coffee at JavaJam</h2>
-            <form action="/edit.php" method="post">
+            <form action="update_item_price.php" method="post">
             <table class="menu-table">
                 <tbody>
                 <?php foreach ($drinks as $drink) { 
@@ -47,14 +47,21 @@ $count = 0;
                     $count = $count + 1;
                 ?>
                 <tr>
-                    <td><input type="radio" name="selected" value="1"></td>
+                    <td><input type="radio" name="selected" value=<?= $count ?> class="select-item"></td>
                     <td class="dark-row menu-item"><strong><?= htmlspecialchars($drink['name']) ?></strong></td>
                     <td class="dark-row"><?= htmlspecialchars($drink['desc']) ?>
                         <br><strong>
                             <?php foreach ($drink_cat as $cat) { ?>
-                                <?= htmlspecialchars($cat['category']) ?> $<?= htmlspecialchars($cat['price']) ?> <input type="radio" name="item-<?= $count ?>" value="<?= htmlspecialchars($cat['price']) ?>"> 
+                                <?= htmlspecialchars($cat['category']) ?> 
+                                $<input 
+                                    type="number" 
+                                    name=<?= htmlspecialchars($cat['drink_id'])."-".htmlspecialchars($cat['id']) ?>
+                                    value=<?= htmlspecialchars($cat['price']) ?> 
+                                    placeholder=<?= htmlspecialchars($cat['price']) ?>
+                                    class="price-input"
+                                >  
                                 <?php } ?>
-                            NIL <input type="radio" name="item-1" value="0" checked="checked">
+                            NIL
                         </strong>
                     </td>
                 </tr>

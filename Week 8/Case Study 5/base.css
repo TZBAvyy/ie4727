@@ -177,3 +177,11 @@ body {
   min-width: 100px;
   min-height: 100px;
 }
+
+.select-item {
+  border-radius: 0%;
+}
+
+.price-input {
+  max-width: 40px;
+}
