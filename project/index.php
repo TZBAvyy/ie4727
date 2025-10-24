@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IE4727 Project Title</title>
-</head>
-<body>
-    <header>
+<?php
+require_once "./config.php";
 
-    </header>
-    <div>
-        
-    </div>
-    <footer>
-        <p>&copy; 2025 IE4727 Project</p>
-    </footer>
-</body>
-</html>
+$page = $_GET['page'] ?? 'home';
+$page_path = "./pages/" . basename($page) . ".php";
+
+include "./includes/header.php";
+
+echo "<div class='content'>";
+if (file_exists($page_path)) {
+    include $page_path;
+} else {
+    echo "<h2>404 - Page not found</h2>";
+}
+echo "</div>";
+
+include "./includes/footer.php";
