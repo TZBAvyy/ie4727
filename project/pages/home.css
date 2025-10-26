@@ -1,3 +1,34 @@
-h2, p {
-    color: blue;
+.movie {
+    color: white;
+    text-decoration: none;
+}
+
+.search-section {
+    font-size: 2rem;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+.movies-section {
+    display: grid;
+    row-gap: 3rem;
+}
+
+.movie-poster {
+    height: 20rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .movies-section {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }  
+}
+
+@media only screen and (max-width: 768px) {
+    .movies-section {
+        grid-template-columns: 1fr 1fr;
+    }
 }

@@ -9,11 +9,12 @@ CREATE TABLE `Movies`(
     `name` TEXT NOT NULL,
     `description` TEXT NOT NULL,
     `rating` VARCHAR(6) NOT NULL,
-    `duration_in_min` BIGINT NOT NULL
+    `duration_in_min` BIGINT NOT NULL,
+    `movie_poster` TEXT NOT NULL
 );
 CREATE TABLE `Users`(
     `user_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `username` TEXT NOT NULL,
+    `username` VARCHAR(20) NOT NULL,
     `name` TEXT NOT NULL,
     `email` TEXT NOT NULL,
     `hashpassword` TEXT NOT NULL
@@ -26,7 +27,7 @@ CREATE TABLE `Tickets`(
 );
 CREATE TABLE `Seats`(
     `seat_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `seat_type` TEXT NOT NULL,
+    `seat_type` VARCHAR(3) NOT NULL,
     `seat_price` FLOAT(53) NOT NULL
 );
 CREATE TABLE `Schedules`(
@@ -46,11 +47,11 @@ ALTER TABLE
     `Tickets` ADD CONSTRAINT `tickets_seat_id_foreign` FOREIGN KEY(`seat_id`) REFERENCES `Seats`(`seat_id`);
 
 -- Insert Movies
-INSERT INTO Movies (name, description, rating, duration_in_min) VALUES
-('The Dark Knight', 'A batman movie about fighting crime in Gotham', 'PG-13', 152),
-('Inception', 'A dream within a dream heist movie', 'PG-13', 148),
-('Jurassic Park', 'Dinosaurs come to life in a theme park', 'PG-13', 127),
-('The Lion King', 'Animated movie about a lion cub becoming king', 'G', 118);
+INSERT INTO Movies (name, description, rating, duration_in_min, movie_poster) VALUES
+('The Dark Knight', 'A batman movie about fighting crime in Gotham', 'PG-13', 152, 'the-dark-knight-poster.jpg'),
+('Inception', 'A dream within a dream heist movie', 'PG-13', 148, 'inception-poster.jpg'),
+('Jurassic Park', 'Dinosaurs come to life in a theme park', 'PG-13', 127, 'jurassic-park-poster.jpg'),
+('The Lion King', 'Animated movie about a lion cub becoming king', 'G', 118, 'the-lion-king-poster.jpg');
 
 -- Insert Users
 INSERT INTO Users (username, name, email, hashpassword) VALUES

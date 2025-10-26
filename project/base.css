@@ -16,17 +16,22 @@ html {
 }
 
 body {
+  color: white;
   box-sizing: border-box;
   font-size: 1.6rem;
   min-height: 100vh;
   margin-left: var(--sidebar-width);
   background: #EDDD53;
-  background: linear-gradient(0deg, rgba(237, 221, 83, 1) 0%, rgba(172, 160, 60, 1) 5%, rgba(112, 105, 39, 1) 20%, rgba(21, 21, 21, 1) 40%, rgba(5, 5, 5, 1) 100%);
+  background: linear-gradient(180deg, rgba(237, 221, 83, 1) 0%, rgba(172, 160, 60, 1) 5%, rgba(48, 48, 48, 1) 20%, rgba(21, 21, 21, 1) 80%, rgba(5, 5, 5, 1) 100%);
 }
 
 .content {
+  padding-top: 2rem;
   margin-left: 10px;
   min-height: calc(100vh - var(--footer-height));
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 header, footer {

@@ -1,6 +1,7 @@
 <?php
 // Basic configuration
 $site_name = "Golden Theatres";
+date_default_timezone_set("Asia/Singapore");
 
 // Example database connection (optional)
 $db_host = "localhost";
