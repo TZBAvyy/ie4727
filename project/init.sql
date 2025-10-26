@@ -8,7 +8,8 @@ CREATE TABLE `Movies`(
     `movie_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` TEXT NOT NULL,
     `description` TEXT NOT NULL,
-    `rating` VARCHAR(6) NOT NULL
+    `rating` VARCHAR(6) NOT NULL,
+    `duration_in_min` BIGINT NOT NULL
 );
 CREATE TABLE `Users`(
     `user_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -45,11 +46,11 @@ ALTER TABLE
     `Tickets` ADD CONSTRAINT `tickets_seat_id_foreign` FOREIGN KEY(`seat_id`) REFERENCES `Seats`(`seat_id`);
 
 -- Insert Movies
-INSERT INTO Movies (name, description, rating) VALUES
-('The Dark Knight', 'A batman movie about fighting crime in Gotham', 'PG-13'),
-('Inception', 'A dream within a dream heist movie', 'PG-13'),
-('Jurassic Park', 'Dinosaurs come to life in a theme park', 'PG-13'),
-('The Lion King', 'Animated movie about a lion cub becoming king', 'G');
+INSERT INTO Movies (name, description, rating, duration_in_min) VALUES
+('The Dark Knight', 'A batman movie about fighting crime in Gotham', 'PG-13', 152),
+('Inception', 'A dream within a dream heist movie', 'PG-13', 148),
+('Jurassic Park', 'Dinosaurs come to life in a theme park', 'PG-13', 127),
+('The Lion King', 'Animated movie about a lion cub becoming king', 'G', 118);
 
 -- Insert Users
 INSERT INTO Users (username, name, email, hashpassword) VALUES

@@ -1,3 +1,6 @@
+<style>
+<?php include './pages/home.css'; ?>
+</style>
 <?php
 
 ?>
