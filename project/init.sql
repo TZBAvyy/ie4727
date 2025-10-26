@@ -48,10 +48,10 @@ ALTER TABLE
 
 -- Insert Movies
 INSERT INTO Movies (name, description, rating, duration_in_min, movie_poster) VALUES
-('The Dark Knight', 'A batman movie about fighting crime in Gotham', 'PG-13', 152, 'the-dark-knight-poster.jpg'),
-('Inception', 'A dream within a dream heist movie', 'PG-13', 148, 'inception-poster.jpg'),
-('Jurassic Park', 'Dinosaurs come to life in a theme park', 'PG-13', 127, 'jurassic-park-poster.jpg'),
-('The Lion King', 'Animated movie about a lion cub becoming king', 'G', 118, 'the-lion-king-poster.jpg');
+('The Dark Knight (2008)', "When a menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman, James Gordon and Harvey Dent must work together to put an end to the madness.", 'PG-13', 152, 'the-dark-knight-poster.jpg'),
+('Inception (2010)', "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.", 'PG-13', 148, 'inception-poster.jpg'),
+('Jurassic Park (1993)', "An industrialist invites some experts to visit his theme park of cloned dinosaurs. After a power failure, the creatures run loose, putting everyone's lives, including his grandchildren's, in danger.", 'PG-13', 127, 'jurassic-park-poster.jpg'),
+('The Lion King (2019)', "After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery.", 'G', 118, 'the-lion-king-poster.jpg');
 
 -- Insert Users
 INSERT INTO Users (username, name, email, hashpassword) VALUES

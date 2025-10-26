@@ -1,20 +1,12 @@
-.movie {
+.movie-link {
     color: white;
     text-decoration: none;
-}
-
-.search-section {
-    font-size: 2rem;
-    color: black;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    align-items: center;
 }
 
 .movies-section {
     display: grid;
     row-gap: 3rem;
+    column-gap: 1rem;
 }
 
 .movie-poster {
