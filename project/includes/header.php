@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= ucfirst($page)." - ".$site_name ?? $site_name ?></title>
     <link rel="stylesheet" href="./base.css">
+    <link rel="icon" href="./images/favicon.ico" type="image/ico">
 </head>
 <body>
 <header>

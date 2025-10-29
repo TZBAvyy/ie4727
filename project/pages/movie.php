@@ -34,9 +34,12 @@ $row = $result->fetch_assoc();
             <div class="showtimes">
                 <?php
                 do {
-                    $date = date("d-m-Y\nh:i:s a",strtotime($row['date']));
+                    $date = date("d M Y\nh:i:s a",strtotime($row['date']));
                 ?>
-                <a href="index.php?page=seats&schedule_id=<?=$row['schedule_id']?>"><?= $date ?></a>
+                <a 
+                    href="index.php?page=seats&schedule_id=<?=$row['schedule_id']?>"
+                    class="showtime-link"
+                ><?= $date ?></a>
                 <?php
                 } while ($row = $result->fetch_assoc());
                 ?>
