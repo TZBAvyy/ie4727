@@ -1,0 +1,20 @@
+.movie-information {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.movie-description {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.movie-poster {
+    width: 30rem;
+}
+
+.showtimes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 2rem;
+}
