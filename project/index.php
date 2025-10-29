@@ -1,19 +1,28 @@
+<?php
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IE4727 Project Title</title>
+  <meta charset="UTF-8">
+  <title>Silver Village — Now Showing</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
 
-    </header>
-    <div>
-        
-    </div>
-    <footer>
-        <p>&copy; 2025 IE4727 Project</p>
-    </footer>
+  <header>
+    <h1>Silver Village Cinema</h1>
+    <nav>
+      <a href="index.php">Movies</a>
+      <a href="preferences.php">Preferences</a>
+      <a href="food.php">Food & Beverages</a>
+      <a href="contact.php">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Now Showing</h2>
+
+  </main>
+
 </body>
 </html>
