@@ -21,8 +21,8 @@ body {
   font-size: 1.6rem;
   min-height: 100vh;
   margin-left: var(--sidebar-width);
-  background: #EDDD53;
-  background: linear-gradient(180deg, rgba(237, 221, 83, 1) 0%, rgba(172, 160, 60, 1) 5%, rgba(48, 48, 48, 1) 20%, rgba(21, 21, 21, 1) 80%, rgba(5, 5, 5, 1) 100%);
+  background: #000000;
+background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 25%, rgba(217, 177, 0, 1) 100%);
 }
 
 .content {
@@ -64,7 +64,7 @@ header {
   min-height: 100vh;
   width: var(--sidebar-width);
   background: #000000;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 40%, rgba(237, 221, 83, 1) 100%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 25%, rgba(184, 150, 0, 1) 100%);
 }
 
 nav {
