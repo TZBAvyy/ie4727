@@ -1,3 +1,12 @@
+.search-section {
+    font-size: 2rem;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
 .movie-link {
     color: white;
     text-decoration: none;

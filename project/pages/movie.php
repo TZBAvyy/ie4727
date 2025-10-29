@@ -20,12 +20,6 @@ $row = $result->fetch_assoc();
 ?>
 </style>
 
-<section class="search-section">
-    <p>Search for showtimes on: </p>
-    <input type="date" name="date-search" id="date-search" value=<?=$current_date?>>
-    <input type="submit" name="search-btn" id="search-btn">
-</section>
-
 <h1><?= $row['name'] ?></h1>
 
 <section class="movie-information">
