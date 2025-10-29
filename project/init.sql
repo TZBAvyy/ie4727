@@ -8,22 +8,16 @@ CREATE TABLE `Movies`(
     `movie_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` TEXT NOT NULL,
     `description` TEXT NOT NULL,
-    `rating` VARCHAR(6) NOT NULL,
+    `rating` VARCHAR(5) NOT NULL,
     `duration_in_min` BIGINT NOT NULL,
-    `movie_poster` TEXT NOT NULL
-);
-CREATE TABLE `Users`(
-    `user_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `username` VARCHAR(20) NOT NULL,
-    `name` TEXT NOT NULL,
-    `email` TEXT NOT NULL,
-    `hashpassword` TEXT NOT NULL
+    `movie_poster` VARCHAR(255) NOT NULL
 );
 CREATE TABLE `Tickets`(
     `ticket_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `user_id` BIGINT UNSIGNED NOT NULL,
     `seat_id` BIGINT UNSIGNED NOT NULL,
-    `schedule_id` BIGINT UNSIGNED NOT NULL
+    `schedule_id` BIGINT UNSIGNED NOT NULL,
+    `phone_number` VARCHAR(19) NULL,
+    `email` VARCHAR(50) NULL
 );
 CREATE TABLE `Seats`(
     `seat_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -38,8 +32,6 @@ CREATE TABLE `Schedules`(
 ALTER TABLE
     `Schedules` ADD UNIQUE `schedules_date_unique`(`date`);
 ALTER TABLE
-    `Tickets` ADD CONSTRAINT `tickets_user_id_foreign` FOREIGN KEY(`user_id`) REFERENCES `Users`(`user_id`);
-ALTER TABLE
     `Schedules` ADD CONSTRAINT `schedules_movie_id_foreign` FOREIGN KEY(`movie_id`) REFERENCES `Movies`(`movie_id`);
 ALTER TABLE
     `Tickets` ADD CONSTRAINT `tickets_schedule_id_foreign` FOREIGN KEY(`schedule_id`) REFERENCES `Schedules`(`schedule_id`);
@@ -53,11 +45,6 @@ INSERT INTO Movies (name, description, rating, duration_in_min, movie_poster) VA
 ('Jurassic Park (1993)', "An industrialist invites some experts to visit his theme park of cloned dinosaurs. After a power failure, the creatures run loose, putting everyone's lives, including his grandchildren's, in danger.", 'PG-13', 127, 'jurassic-park-poster.jpg'),
 ('The Lion King (2019)', "After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery.", 'G', 118, 'the-lion-king-poster.jpg');
 
--- Insert Users
-INSERT INTO Users (username, name, email, hashpassword) VALUES
-('john_doe', 'John Doe', 'john@email.com', 'hashed_password_1'),
-('jane_smith', 'Jane Smith', 'jane@email.com', 'hashed_password_2'),
-('bob123', 'Bob Wilson', 'bob@email.com', 'hashed_password_3');
 
 -- Insert Seats (Different types: 1=Regular, 2=VIP)
 -- Seat Arrangement:
@@ -106,8 +93,8 @@ INSERT INTO Schedules (movie_id, date) VALUES
 (4, '2025-11-03 13:00:00');
 
 -- Insert Tickets
-INSERT INTO Tickets (user_id, seat_id, schedule_id) VALUES
-(1, 1, 1),  -- John books seat A1 for Dark Knight
-(1, 2, 1),  -- John books seat A2 for Dark Knight
-(2, 45, 2),  -- Jane books VIP E5 seat for Dark Knight
-(3, 3, 3);  -- Bob books seat for Inception
+INSERT INTO Tickets (seat_id, schedule_id, phone_number, email) VALUES
+(1, 1, 88643460, NULL),  -- John books seat A1 for Dark Knight
+(2, 1, 88643460, NULL),  -- John books seat A2 for Dark Knight
+(45, 2, NULL, "jane@gmail.com"),  -- Jane books VIP E5 seat for Dark Knight
+(3, 3, NULL, "bob@gmail.com");  -- Bob books seat for Inception
