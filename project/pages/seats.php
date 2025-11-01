@@ -11,9 +11,9 @@ if (isset($_GET['schedule_id'])) {
     exit();
 }
 
-$seat_sql = "SELECT t2.*,t1.ticket_id,t1.contact_info 
+$seat_sql = "SELECT t2.*,t1.ticket_id 
     FROM (  
-        SELECT s.*, t.ticket_id, t.contact_info 
+        SELECT s.*, t.ticket_id
         FROM seats s 
         JOIN tickets t ON s.seat_id=t.seat_id 
         WHERE t.schedule_id=?
@@ -86,6 +86,7 @@ $movie = $movie_result->fetch_assoc();
                         <label for="email">*Email Address:</label>
                         <input type="email" id="email" name="email" required>
                     </div>
+                    <input type="hidden" name="schedule_id" value="<?=$schedule_id?>">
                     <input type="submit" name="submit">
                 </div>
             </form>

@@ -1,7 +1,64 @@
+/* Basic styling */
 .seat-checkbox {
-
+  width: 2rem;
+  height: 2rem;
+  color: dodgerblue;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  outline: 0;
+  flex-grow: 0;
+  border-radius: 50%;
+  background-color: greenyellow;
+  transition: background 300ms;
+  cursor: pointer;
 }
 
-.seat-checkbox:disabled {
+/* Pseudo element for check styling */
+.seat-checkbox::before {
+  content: "";
+  color: transparent;
+  display: block;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  border: 0;
+  background-color: transparent;
+  background-size: contain;
+  box-shadow: inset 0 0 0 1px #CCD3D8;
+}
 
+/* Checked */
+.seat-checkbox:checked {
+  background-color: currentcolor;
+}
+
+.seat-checkbox:checked::before {
+  box-shadow: none;
+}
+
+/* Disabled */
+.seat-checkbox:disabled {
+  background-color: #CCD3D8;
+  opacity: 0.84;
+  cursor: not-allowed;
+}
+
+/* IE */
+.seat-checkbox::-ms-check {
+  content: "";
+  color: transparent;
+  display: block;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  border: 0;
+  background-color: transparent;
+  background-size: contain;
+  box-shadow: inset 0 0 0 1px #CCD3D8;
+}
+
+.seat-checkbox:checked::-ms-check {
+  box-shadow: none;
 }
