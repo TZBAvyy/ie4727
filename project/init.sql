@@ -16,8 +16,7 @@ CREATE TABLE `Tickets`(
     `ticket_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `seat_id` BIGINT UNSIGNED NOT NULL,
     `schedule_id` BIGINT UNSIGNED NOT NULL,
-    `phone_number` VARCHAR(19) NULL,
-    `email` VARCHAR(50) NULL
+    `email` VARCHAR(50) NOT NULL
 );
 CREATE TABLE `Seats`(
     `seat_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -93,8 +92,8 @@ INSERT INTO Schedules (movie_id, date) VALUES
 (4, '2025-11-03 13:00:00');
 
 -- Insert Tickets
-INSERT INTO Tickets (seat_id, schedule_id, phone_number, email) VALUES
-(1, 1, 88643460, NULL),  -- John books seat A1 for Dark Knight
-(2, 1, 88643460, NULL),  -- John books seat A2 for Dark Knight
-(45, 2, NULL, "jane@gmail.com"),  -- Jane books VIP E5 seat for Dark Knight
-(3, 3, NULL, "bob@gmail.com");  -- Bob books seat for Inception
+INSERT INTO Tickets (seat_id, schedule_id, email) VALUES
+(1, 1, "john@yahoo.com"),  -- John books seat A1 for Dark Knight
+(2, 1, "john@yahoo.com"),  -- John books seat A2 for Dark Knight
+(45, 2, "jane@gmail.com"),  -- Jane books VIP E5 seat for Dark Knight
+(3, 3, "bob@gmail.com");  -- Bob books seat for Inception
