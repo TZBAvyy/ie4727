@@ -58,6 +58,13 @@ $movie = $movie_result->fetch_assoc();
             <h2>Seats:</h2>
             <form class="seats" action="./actions/seatHandler.php" method="post">
                 <table>
+                <tr>
+                    <td></td>
+                    <td colspan="100%">
+                        <hr class="screen">
+                        <div class="screen-text">Screen</div>
+                    </td>
+                </tr>
                 <?php
                 $max_cols = 0;
                 $num_row = "<td> </td><td>1</td>";
