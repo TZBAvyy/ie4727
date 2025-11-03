@@ -1,3 +1,43 @@
+.seats-description {
+  padding-right: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 3fr;
+  grid-template-areas: 
+  "desc desc"
+  "seats info";
+}
+
+.desc { grid-area: desc; }
+.seats { grid-area: seats; }
+.booking-info {  grid-area: info;}
+
+.booking-table {
+  width: 100%;
+  height: 100%;
+  border-radius: 3rem;
+  background-color: rgb(55,55,55);
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.booking-table > table {
+  width: 100%;
+}
+
+.booking-table td {
+  text-align: center;
+}
+
+.total {
+  padding: 1rem;
+  margin-left: auto;
+  margin-right: 0;
+  display: flex;
+}
+
 .screen {
   width: 100%;
   height: 1rem;
