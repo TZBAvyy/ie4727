@@ -49,12 +49,12 @@ $movie = $movie_result->fetch_assoc();
 
 <section class="movie-information">
     <img src="./images/<?= $movie['movie_poster'] ?>" alt="Movie Poster Here" class="movie-poster">
-    <div class="movie-description">
-        <div>
+    <div class="seats-description">
+        <div class="desc">
             <h2>Description: </h2>
             <h3><?= $movie['description'] ?></h3>
         </div>
-        <div>
+        <div class="seats">
             <h2>Seats:</h2>
             <form class="seats" action="./actions/seatHandler.php" method="post">
                 <table>
@@ -79,7 +79,14 @@ $movie = $movie_result->fetch_assoc();
                             echo "<td><input type='checkbox' disabled class='seat-checkbox'></td>";
                         } else {
                 ?>
-                <td><input type="checkbox" name="chosen_seats[]" value="<?=$seat['seat_id']?>" class='seat-checkbox'></td>
+                <td><input 
+                    type="checkbox" 
+                    name="chosen_seats[]" 
+                    value="<?=$seat['seat_id']?>" 
+                    class='seat-checkbox' 
+                    data-seat="<?=$seat['seat_type']?>"
+                    data-price="<?=$seat['seat_price']?>"
+                ></td>
                 <?php
                         }
                     }
@@ -98,5 +105,49 @@ $movie = $movie_result->fetch_assoc();
                 </div>
             </form>
         </div>
+        <div class="booking-info">
+            <h2>Booking Info:</h2>
+            <div class="booking-table">
+                <table id="bt">
+                    <tr class="booking-headers"><th>Seat</th><th>Amount</th></tr>
+                </table>
+                <div class="total">
+                    <h3>Total Amount: $</h3>
+                    <h3 id="total-amount">0</h3>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+<script>
+const seat_elements = document.querySelectorAll('.seat-checkbox');
+seat_elements.forEach(element => {
+    element.addEventListener("click",e => {
+        const total_amt_element = document.getElementById("total-amount");
+        const booking_table = document.getElementById("bt");
+
+        const seat_inp = e.target;
+
+        const seat_type = seat_inp.dataset.seat;
+        const seat_price = seat_inp.dataset.price;
+        const isChecked = seat_inp.checked;
+        if (isChecked) {
+            const row = booking_table.insertRow();
+
+            seat_inp.dataset.rowIndex = row.rowIndex;
+
+            const seat_cell = row.insertCell(0);
+            const amt_cell = row.insertCell(1);
+
+            seat_cell.innerHTML = seat_type;
+            amt_cell.innerHTML = "$"+seat_price;
+            total_amt_element.textContent = parseInt(total_amt_element.textContent)+parseInt(seat_price);
+        } else {
+            const rowIndex = seat_inp.dataset.rowIndex;
+            const row = booking_table.rows[rowIndex];
+            row.style.display = 'none';
+            total_amt_element.textContent = parseInt(total_amt_element.textContent)-parseInt(seat_price);
+        }
+    });
+});
+</script>
