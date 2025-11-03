@@ -7,11 +7,6 @@
     align-items: center;
 }
 
-.movie-link {
-    color: white;
-    text-decoration: none;
-}
-
 .movies-section {
     display: grid;
     row-gap: 3rem;
@@ -20,6 +15,34 @@
 
 .movie-poster {
     height: 20rem;
+    width: 15rem;
+}
+
+.movie-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.movie-link {
+    color: white;
+    text-decoration: none;
+}
+
+.showtime-link {
+    width: 15rem;
+    height: 36px;
+    text-decoration: none;
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    color: black;
+}
+
+.showtime-link:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 @media only screen and (min-width: 768px) {
