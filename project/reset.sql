@@ -1,0 +1,1 @@
+DROP DATABASE ie4727_project;

@@ -101,6 +101,8 @@ $movie = $movie_result->fetch_assoc();
                         <input type="email" id="email" name="email" required>
                     </div>
                     <input type="hidden" name="schedule_id" value="<?=$schedule_id?>">
+                    <input type="hidden" name="movie" value="<?= htmlspecialchars($movie['name']) ?>">
+                    <input type="hidden" name="showtime" value="<?= htmlspecialchars($movie['date']) ?>">
                     <input type="submit" name="submit">
                 </div>
             </form>
