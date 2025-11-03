@@ -29,6 +29,21 @@ foreach ($chosen_seats as $seat_id) {
     }
 }
 
+// 1) Look up seat labels (A1..J10) for the successfully inserted seats
+$seatLabels = [];
+if (!empty($successfulSeats)) {
+    $idList = implode(',', array_map('intval', $successfulSeats));
+    $res = $conn->query("SELECT seat_type FROM Seats WHERE seat_id IN ($idList)");
+    while ($row = $res->fetch_assoc()) {
+        $seatLabels[] = $row['seat_type'];
+    }
+}
+
+// 2) Send the confirmation email
+require_once __DIR__ . '/sendmail.php';
+sendConfirmationMail($email, $movie ?: 'Unknown Movie', $showtime ?: 'N/A', $seatLabels);
+
+
 $conn->close();
 
 // Save booking info in session for confirmation page
