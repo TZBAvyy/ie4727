@@ -11,9 +11,24 @@
 <header>
     <nav>
         <h1><?= $site_name ?></h1>
+        <?php
+        if (isset($_SESSION['admin'])) {
+        ?>
+        <h2>Administrator Access</h2>
+        <?php
+        }
+        ?>
         <a href="index.php?page=home"><img src="./images/logo.png" alt="Site Logo" width=100px height=100px></a>
         <a href="index.php?page=home">Home</a>
         <a href="index.php?page=booking">Check Bookings</a>
         <a href="index.php?page=about">About</a>
+        <?php
+        if (isset($_SESSION['admin'])) {
+        ?>
+        <a href="index.php?page=update_movie">Update Movies</a>
+        <a href="index.php?page=check_sales">Check Sales</a>
+        <?php
+        }
+        ?>
     </nav>
 </header>

@@ -45,3 +45,6 @@ $conn->close();
 
   <a href="index.php?page=home" style="color:#ffd700; text-decoration:underline;">Return to Home</a>
 </div>
+
+<?php
+unset($_SESSION['booking']);
