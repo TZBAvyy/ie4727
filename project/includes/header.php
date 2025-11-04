@@ -25,8 +25,13 @@
         <?php
         if (isset($_SESSION['admin'])) {
         ?>
-        <a href="index.php?page=update_movie">Update Movies</a>
-        <a href="index.php?page=check_sales">Check Sales</a>
+        <a href="index.php?page=select_movie">Update Movies</a>
+        <a href="./actions/logout.php">Logout</a>
+        <!-- <a href="index.php?page=check_sales">Check Sales</a> -->
+        <?php
+        } else {
+        ?>
+        <a href="index.php?page=login_admin">Admin Login</a>
         <?php
         }
         ?>
