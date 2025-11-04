@@ -13,6 +13,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+    border-radius: 5rem;
 }
 
 .admin-form label {
