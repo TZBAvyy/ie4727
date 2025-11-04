@@ -27,7 +27,11 @@ if ($q === '') {
     $res = mysqli_stmt_get_result($stmt);
 
     while ($row = mysqli_fetch_assoc($res)) {
-        $rows[] = $row;
+        $showtime = $row['showtime'];
+        if (!array_key_exists($showtime, $rows)) {
+          $rows[$showtime] = [];
+        }
+        $rows[$showtime][] = $row;
     }
 
     if (empty($rows)) {
@@ -57,14 +61,22 @@ if ($q === '') {
   <?php if (!empty($rows)): ?>
     <hr>
     <h3>Results</h3>
-    <?php foreach ($rows as $r): ?>
-      <div class="booking-result">
-        <p><strong>Booking Ref:</strong> <?= htmlspecialchars($r['booking_ref']) ?></p>
-        <p><strong>Movie:</strong> <?= htmlspecialchars($r['movie']) ?></p>
-        <p><strong>Showtime:</strong> <?= htmlspecialchars($r['showtime']) ?></p>
-        <p><strong>Seat:</strong> <?= htmlspecialchars($r['seat']) ?></p>
-      </div>
-      <hr>
-    <?php endforeach; ?>
+    <div class="booking-result-grid">
+      <?php foreach ($rows as $st=>$seats): ?>
+        <div class="booking-result">
+          <p><strong>Movie:</strong> <?= htmlspecialchars($seats[0]['movie']) ?></p>
+          <p><strong>Showtime:</strong> <?= htmlspecialchars($st) ?></p>
+          <p><strong>Seats:</strong> 
+            <?php 
+            $seats_output = "";
+            foreach ($seats as $seat) {
+              $seats_output = $seats_output.htmlspecialchars($seat['seat']).", ";
+            }
+            echo trim($seats_output, ", ");
+            ?>
+          </p>
+        </div>
+      <?php endforeach; ?>
+    </div>
   <?php endif; ?>
 </div>
